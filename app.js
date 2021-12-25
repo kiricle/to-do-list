@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 
 const app = express();
 
-let items = [];
+const items = [];
 
 app.set('view engine', 'ejs');
 
