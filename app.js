@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const app = express();
 
 const items = [];
+const workItems = [];
 
 app.set('view engine', 'ejs');
 
@@ -25,15 +26,25 @@ app.get('/', (req, res) => {
 });
 
 app.get('/work', (req, res) => {
-  res.render('list', { listTitle: 'Work List' });
+  res.render('list', { listTitle: 'Work', newListItems: workItems });
+});
+
+app.post('/work', (req, res) => {
+  const { newItem } = req.body;
+  workItems.push(newItem);
+  res.redirect('/work');
 });
 
 app.post('/', (req, res) => {
   const { newItem } = req.body;
 
-  items.push(newItem);
-
-  res.redirect('/');
+  if (req.body.list === 'Work') {
+    workItems.push(newItem);
+    res.redirect('/work');
+  } else {
+    items.push(newItem);
+    res.redirect('/');
+  }
 });
 
 app.listen(3000, () => {
