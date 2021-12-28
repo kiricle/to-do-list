@@ -28,6 +28,8 @@ h1 {
   display: flex;
   align-items: center;
   border-bottom: 1px solid #F1F1F1;
+  font-family: 'Pushster', cursive;
+  font-size: 40px;
 }
 
 .item:last-child {
@@ -90,7 +92,6 @@ input[type="text"]:focus {
 }
 
 footer {
-  color: white;
   color: rgba(0, 0, 0, 0.5);
   text-align: center;
 }
