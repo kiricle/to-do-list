@@ -5,3 +5,4 @@ The list of used technologies:
 * ExpressJS
 * EJS
 * CSS
+* MongoDB(using mongoose)
