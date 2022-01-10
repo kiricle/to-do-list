@@ -4,6 +4,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
+require('dotenv').config();
+
 const app = express();
 
 app.set('view engine', 'ejs');
@@ -12,7 +14,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 const mongoDBLogin = process.env.MONGODB_LOGIN;
-
 mongoose.connect(`mongodb+srv://${mongoDBLogin}@cluster0.hwn3c.mongodb.net/todolistDB`);
 
 const itemsSchema = {
@@ -95,7 +96,7 @@ app.post('/delete', (req, res) => {
 });
 
 let port = process.env.PORT;
-if (port === null || port === '') {
+if (port === undefined || port === '') {
   port = 3000;
 }
 app.listen(port, () => {
