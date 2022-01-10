@@ -6,3 +6,4 @@ The list of used technologies:
 * EJS
 * CSS
 * MongoDB(using mongoose)
+## The project is deployed on [heroku](https://to-do-list-kiricle.herokuapp.com/about)
